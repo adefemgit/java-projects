@@ -35,6 +35,7 @@ public class Movie {
         return "Title: " + title + "\n" +
                 "Genre: " + genre + "\n" +
                 "availability: " + isAvailable + "\n";
+
      }
 
 }
