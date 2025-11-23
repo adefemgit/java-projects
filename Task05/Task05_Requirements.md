@@ -74,12 +74,4 @@ FR-06
   - Given a completed attempt, when Review is opened, then each question shows the user answer, the correct one, and explanation.
   - Given the review page, when items are expanded, then content loads without page refresh.
 
-Non-Functional Requirements
-- Performance: ≤2s initial load under 500 concurrent users.
-- Security: bcrypt (≥10), HTTPS, GDPR.
-- Reliability: ≥99.9% uptime.
-- Usability: AA contrast, keyboard nav; SUS ≥75.
-- Portability: Modern browsers; responsive.
 
-Terminology and Glossary
-- MCQ, Attempt, Catalog, Flag, GDPR, FR/NFR, SUS
