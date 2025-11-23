@@ -4,26 +4,18 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
-/**
- * Simple Online Quiz System
- * Provides REST endpoints for quiz questions and answer submission
- * @author Quiz Team
- * @version 1.0
- */
+
 public class Main {
-    /**
-     * Quiz questions stored as 2D array
-     * First element is the question text, followed by options
-     */
+
     static String[][] questions = {
         {"What is 2 + 2?", "1", "4", "3", "5"},
         {"Capital of France?", "Berlin", "Madrid", "Paris", "Rome"},
         {"Java file extension?", ".js", ".java", ".py", ".class"}
     };
     
-    /**
-     * Correct answer indices for each question (0-based)
-     */
+
+     // Correct answer indices for each question (0-based)
+
     static int[] answers = {1, 2, 1};
 
     /**
