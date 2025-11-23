@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500"><rect width="100%" height="100%" fill="#fff"/><rect x="100" y="60" width="160" height="40" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="140" y="85" font-size="12">Start</text><rect x="320" y="60" width="240" height="40" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="340" y="85" font-size="12">Load first question</text><line x1="260" y1="80" x2="320" y2="80" stroke="#9CA3AF"/>
+<rect x="320" y="140" width="240" height="40" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="350" y="165" font-size="12">Select option</text>
+<rect x="320" y="220" width="240" height="60" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="355" y="255" font-size="12">Next / Back?</text>
+<rect x="100" y="320" width="240" height="40" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="140" y="345" font-size="12">Previous question</text>
+<rect x="420" y="320" width="240" height="40" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="465" y="345" font-size="12">Next question</text>
+<rect x="320" y="400" width="240" height="40" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="390" y="425" font-size="12">Submit</text>
+<line x1="440" y1="100" x2="440" y2="140" stroke="#9CA3AF"/>
+<line x1="440" y1="180" x2="440" y2="220" stroke="#9CA3AF"/>
+<line x1="440" y1="280" x2="220" y2="320" stroke="#9CA3AF"/>
+<line x1="440" y1="280" x2="520" y2="320" stroke="#9CA3AF"/>
+<line x1="540" y1="360" x2="440" y2="400" stroke="#9CA3AF"/>
+</svg>

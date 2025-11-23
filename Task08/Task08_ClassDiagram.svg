@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600"><rect width="100%" height="100%" fill="#fff"/>
+<rect x="60" y="60" width="180" height="120" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="80" y="80" font-size="12">User</text><text x="80" y="100" font-size="11">id, username, passwordHash, role</text>
+<rect x="320" y="60" width="220" height="140" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="340" y="80" font-size="12">Quiz</text><text x="340" y="100" font-size="11">id, title, category, difficulty, duration</text>
+<rect x="620" y="60" width="240" height="180" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="640" y="80" font-size="12">Question</text><text x="640" y="100" font-size="11">id, text, options A-D, correctIndex, explanation, category, difficulty</text>
+<rect x="60" y="280" width="240" height="160" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="80" y="300" font-size="12">QuizAttempt</text><text x="80" y="320" font-size="11">id, user, quiz, totalQuestions, correctCount, startedAt, submittedAt, detailsJson</text>
+<rect x="380" y="320" width="240" height="120" rx="8" fill="#F3F4F6" stroke="#E5E7EB"/><text x="400" y="340" font-size="12">AnswerSelection</text><text x="400" y="360" font-size="11">id, attempt, question, selectedIndex, correct</text>
+<line x1="150" y1="180" x2="180" y2="280" stroke="#9CA3AF"/><text x="105" y="230" font-size="11">1..*</text>
+<line x1="430" y1="200" x2="180" y2="280" stroke="#9CA3AF"/><text x="300" y="240" font-size="11">1..*</text>
+<line x1="740" y1="240" x2="430" y2="380" stroke="#9CA3AF"/><text x="540" y="320" font-size="11">1..1</text>
+<line x1="430" y1="380" x2="180" y2="360" stroke="#9CA3AF"/><text x="310" y="370" font-size="11">1..*</text>
+<line x1="540" y1="140" x2="740" y2="140" stroke="#9CA3AF"/><text x="610" y="130" font-size="11">*..*</text>
+</svg>

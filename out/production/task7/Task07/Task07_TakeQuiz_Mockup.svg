@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024"><rect width="100%" height="100%" fill="#F9FAFB"/>
+<rect x="80" y="40" width="1280" height="60" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/><text x="100" y="78" font-size="16" fill="#111827">Quiz Title</text>
+<rect x="400" y="56" width="400" height="16" rx="8" fill="#E5E7EB"/><rect x="400" y="56" width="200" height="16" rx="8" fill="#4F46E5"/>
+<rect x="1120" y="40" width="240" height="40" rx="20" fill="#FFFBEB" stroke="#F59E0B"/><text x="1180" y="66" font-size="14" fill="#F59E0B">15:00</text>
+<rect x="80" y="200" width="1280" height="80" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/><text x="100" y="240" font-size="16" fill="#111827">Question text...</text>
+<rect x="80" y="300" width="1280" height="60" rx="12" fill="#FFFFFF" stroke="#4F46E5"/>
+<rect x="80" y="370" width="1280" height="60" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="80" y="440" width="1280" height="60" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="80" y="510" width="1280" height="60" rx="12" fill="#FFFFFF" stroke="#E5E7EB"/>
+<rect x="80" y="600" width="160" height="40" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/><text x="120" y="626" font-size="14" fill="#111827">Back</text>
+<rect x="240" y="600" width="160" height="40" rx="8" fill="#4F46E5"/><text x="290" y="626" font-size="14" fill="#FFFFFF">Next</text>
+</svg>
