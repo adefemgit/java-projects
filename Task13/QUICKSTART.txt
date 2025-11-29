@@ -1,0 +1,195 @@
+QUICK START GUIDE - Performance Testing
+
+Step-by-Step Instructions for Running Performance Tests
+
+Prerequisites Check
+
+1. Verify Java 11 is installed:
+   java -version
+   
+2. Install JMeter (if not already installed):
+   macOS: brew install jmeter
+   Linux: Download from https://jmeter.apache.org/download_jmeter.cgi
+   
+3. Verify JMeter installation:
+   jmeter --version
+
+Running the Test
+
+Step 1: Start the Quiz Application
+Open Terminal 1:
+
+cd /Users/jnr/Documents/Sysdev_project
+javac Main.java
+java Main
+
+
+Keep this terminal running. You should see:
+"Server running at http://localhost:8080"
+
+Step 2: Run Performance Test
+Open Terminal 2:
+
+cd /Users/jnr/Documents/Sysdev_project/Task13
+./run_performance_test.sh
+
+
+The script will:
+- Check if server is running
+- Clean previous results
+- Execute the test with 1000 users over 5 minutes
+- Generate HTML report
+- Open the report in your browser
+
+Step 3: Review Results
+The HTML report will open automatically showing:
+- Response time graphs
+- Throughput metrics
+- Error statistics
+- Detailed performance data
+
+Customizing the Test
+
+Run with different user count:
+
+./run_performance_test.sh -t 500
+
+
+Run with different ramp-up time (in seconds):
+
+./run_performance_test.sh -r 600
+
+
+Run in GUI mode for test development:
+
+./run_performance_test.sh -m gui
+
+
+Combine options:
+
+./run_performance_test.sh -t 2000 -r 600
+
+
+Manual Execution (Without Script)
+
+If you prefer to run JMeter manually:
+
+
+cd /Users/jnr/Documents/Sysdev_project
+jmeter -n -t Task13/performance/QuizLoadTest.jmx -l Task13/reports/results.jtl -e -o Task13/reports/html-report
+
+
+Generating the Report
+
+Step 1: Collect Test Results
+- Open: Task13/reports/html-report/index.html
+- Review all dashboard sections
+- Take screenshots of key graphs
+
+Step 2: Fill in the Report Template
+- Open: Task13/reports/PERFORMANCE_TEST_REPORT_TEMPLATE.txt
+- Replace all [INSERT] placeholders with actual data
+- Add screenshots and analysis
+
+Step 3: Convert to PDF
+Options:
+a) Microsoft Word: Copy content, format, export as PDF
+b) Google Docs: Copy content, format, download as PDF
+c) Pandoc: pandoc report.txt -o report.pdf
+d) Online converter: Use markdown-to-pdf tool
+
+Step 4: Upload to Shared Folder
+- Save PDF as: Performance_Test_Report_[DATE].pdf
+- Upload to: Performance_test_JMeter shared folder
+
+Key Metrics to Extract from HTML Report
+
+Dashboard Statistics Tab:
+- Total requests
+- Success rate
+- Error rate
+- Average response time
+- Throughput (req/sec)
+
+Charts Tab:
+- Response Time Over Time graph
+- Active Threads Over Time graph
+- Transactions Per Second graph
+
+Statistics Table:
+- For each endpoint (/, /questions, /submit):
+  * Average response time
+  * 90th percentile
+  * 95th percentile
+  * Min/Max times
+  * Error percentage
+
+Understanding Results
+
+Response Time Guidelines:
+- Excellent: < 500ms average
+- Good: 500-1000ms average
+- Acceptable: 1000-2000ms average
+- Poor: > 2000ms average
+
+NFR Compliance:
+- Target: < 2000ms (from Task05 requirements)
+- Check 95th percentile is under 2000ms
+- All requests should meet this threshold
+
+Error Rate:
+- Target: < 1% errors
+- Any errors should be investigated
+- Common errors: Connection refused, timeouts
+
+Troubleshooting
+
+Issue: "Server is NOT running"
+Solution: Start Main.java in separate terminal
+
+Issue: "JMeter is not installed"
+Solution: Run "brew install jmeter"
+
+Issue: Test takes too long
+Solution: Reduce threads or ramp-up time for testing
+
+Issue: High error rate
+Solution: Check server logs, verify endpoints work manually
+
+Issue: Cannot generate HTML report
+Solution: Delete old reports folder and try again
+
+Issue: Out of memory
+Solution: Increase JMeter heap size:
+export JVM_ARGS="-Xms512m -Xmx2048m"
+
+Expected Timeline
+
+- Server startup: 5 seconds
+- Test ramp-up: 5 minutes (300 seconds)
+- Test execution: ~1-2 minutes
+- Report generation: 10-30 seconds
+- Total: Approximately 7-8 minutes
+
+After the Test
+
+1. Stop the Quiz server (Ctrl+C in Terminal 1)
+2. Review HTML report thoroughly
+3. Take screenshots of important graphs
+4. Complete the report template
+5. Generate PDF
+6. Upload to shared folder
+7. Commit results to GitHub
+
+Deliverables Checklist
+
+- [ ] Test executed successfully
+- [ ] HTML report generated
+- [ ] Screenshots captured
+- [ ] Report template completed
+- [ ] PDF created
+- [ ] PDF uploaded to Performance_test_JMeter folder
+- [ ] Results committed to GitHub (Task13/reports/)
+- [ ] Test plan committed to GitHub (Task13/performance/)
+
+

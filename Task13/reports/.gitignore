@@ -1,0 +1,17 @@
+
+results.jtl
+*.jtl
+*.csv
+
+
+html-report/
+
+
+screenshots/*.png
+screenshots/*.jpg
+
+
+!screenshots/.gitkeep
+!.gitignore
+!README.md
+!PERFORMANCE_TEST_REPORT_TEMPLATE.txt

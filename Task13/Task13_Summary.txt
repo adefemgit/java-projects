@@ -1,0 +1,273 @@
+Task 13 - Performance and Load Testing
+
+Project: Online Quiz System
+Email: adefemiisaaco@gmail.com
+
+OVERVIEW
+
+Task 13 implements comprehensive performance and load testing for the Online Quiz System using Apache JMeter. This task validates that the system meets non-functional requirements under expected normal and peak traffic conditions.
+
+OBJECTIVES
+
+1. Load Testing
+   Verify system can handle 1000 concurrent users
+   Test gradual user ramp-up over 5 minutes
+   Simulate realistic user behavior patterns
+
+2. Performance Validation
+   Ensure response times remain under 2 seconds (NFR requirement from Task05)
+   Measure system throughput and capacity
+   Validate all three API endpoints under load
+
+3. Bottleneck Identification
+   Identify performance constraints
+   Analyze resource utilization
+   Pinpoint slow operations
+
+4. Reporting
+   Generate comprehensive performance metrics
+   Create visual analysis charts
+   Produce PDF report for documentation
+   Upload results to Performance_test_JMeter shared folder
+
+TEST CONFIGURATION
+
+Virtual Users: 1000 threads
+Ramp-up Period: 300 seconds (5 minutes)
+Ramp-up Rate: 3.33 users per second
+Loop Count: 1 iteration per user
+Total Requests: 3000 (3 endpoints × 1000 users)
+Think Time: 1000ms between requests
+
+TEST SCENARIOS
+
+1. Home Page Load (GET /)
+   Simulates user accessing quiz HTML interface
+   Validates response code 200
+   Asserts response time < 2000ms
+
+2. Questions API (GET /questions)
+   Simulates fetching quiz questions JSON
+   Validates JSON structure and content
+   Asserts response time < 2000ms
+
+3. Quiz Submission (POST /submit?answers=1,2,1)
+   Simulates user submitting quiz answers
+   Validates correct scoring (3/3)
+   Asserts response time < 2000ms
+
+DELIVERABLES
+
+1. Test Plan Files
+   - QuizLoadTest.jmx - JMeter test plan configuration
+   - Location: Task13/performance/
+
+2. Execution Scripts
+   - run_performance_test.sh - Automated test runner
+   - Features: Server verification, cleanup, report generation
+   - Supports custom parameters (threads, ramp-up, mode)
+
+3. Documentation
+   - Task13_PerformanceTestingGuide.md - Complete testing guide
+   - QUICKSTART.txt - Quick reference for running tests
+   - README.md - Reports directory documentation
+
+4. Report Template
+   - PERFORMANCE_TEST_REPORT_TEMPLATE.txt - Structured report format
+   - Includes all required sections and metrics
+   - Ready for data insertion and PDF conversion
+
+5. Test Results (Generated)
+   - results.jtl - Raw test data
+   - html-report/ - Interactive dashboard
+   - screenshots/ - Visual evidence
+
+6. Final PDF Report
+   - Comprehensive analysis document
+   - Performance metrics and graphs
+   - Bottleneck analysis
+   - Recommendations
+   - Upload to: Performance_test_JMeter shared folder
+
+FILE STRUCTURE
+
+Task13/
+├── Task13_PerformanceTestingGuide.md    (Complete guide)
+├── QUICKSTART.txt                        (Quick reference)
+├── run_performance_test.sh               (Execution script)
+├── performance/
+│   └── QuizLoadTest.jmx                  (JMeter test plan)
+└── reports/
+    ├── README.md                         (Reports documentation)
+    ├── .gitignore                        (Git configuration)
+    ├── PERFORMANCE_TEST_REPORT_TEMPLATE.txt (Report template)
+    ├── screenshots/                      (Graph screenshots)
+    ├── results.jtl                       (Generated - gitignored)
+    └── html-report/                      (Generated - gitignored)
+
+RUNNING THE TESTS
+
+Quick Start:
+1. Start Quiz server: java Main
+2. Run test: ./Task13/run_performance_test.sh
+3. Review HTML report (opens automatically)
+4. Fill in report template with results
+5. Convert to PDF and upload
+
+Custom Parameters:
+- Custom threads: ./run_performance_test.sh -t 500
+- Custom ramp-up: ./run_performance_test.sh -r 600
+- GUI mode: ./run_performance_test.sh -m gui
+
+PERFORMANCE METRICS
+
+Response Time Metrics:
+- Average response time per endpoint
+- 90th, 95th, 99th percentile times
+- Min/Max response times
+- Standard deviation
+
+Throughput Metrics:
+- Requests per second
+- Requests per minute
+- Peak throughput
+- Network throughput (KB/s)
+
+Quality Metrics:
+- Error rate (target < 1%)
+- Success rate
+- Assertion pass rate
+
+Compliance:
+- NFR validation (< 2s response time)
+- 95th percentile compliance
+- Error threshold compliance
+
+KEY FEATURES
+
+1. Realistic Load Simulation
+   - Gradual user ramp-up (not instant load)
+   - Think time between requests
+   - Sequential request pattern per user
+
+2. Comprehensive Assertions
+   - HTTP status code validation
+   - Response time validation
+   - JSON content validation
+   - Scoring accuracy validation
+
+3. Detailed Reporting
+   - Multiple report formats (JTL, HTML, custom template)
+   - Visual charts and graphs
+   - Statistical analysis
+   - Actionable recommendations
+
+4. Automation
+   - Automated server detection
+   - Automatic cleanup of old results
+   - Automatic HTML report generation
+   - Automatic browser launch
+
+5. Flexibility
+   - Configurable user count
+   - Configurable ramp-up period
+   - GUI and CLI modes
+   - Command-line parameter overrides
+
+INTEGRATION WITH PROJECT
+
+Relationship to Other Tasks:
+- Task05: Tests NFR requirements (≤2s response time, ≥99.9% reliability)
+- Task11: Complements unit/integration tests
+- Task12: Complements E2E tests
+- Task10: Results committed via Git workflow
+
+Technology Alignment:
+- Java 11: Consistent with project stack
+- Maven: Build tool compatibility
+- JMeter: Industry-standard performance tool
+- CLI automation: CI/CD ready
+
+EXPECTED OUTCOMES
+
+Success Criteria:
+✓ All 3000 requests complete successfully
+✓ 95th percentile response time < 2000ms
+✓ Error rate < 1%
+✓ No server crashes or timeouts
+✓ Consistent throughput during steady state
+✓ HTML report generates successfully
+✓ PDF report completed and uploaded
+
+Performance Targets:
+- Average response time: < 1000ms
+- 90th percentile: < 1500ms
+- 95th percentile: < 2000ms
+- Throughput: > 100 req/s
+- Error rate: < 1%
+
+NEXT STEPS AFTER COMPLETION
+
+1. Execute the performance test
+2. Analyze results from HTML dashboard
+3. Capture screenshots of key metrics
+4. Complete report template with actual data
+5. Convert report to PDF format
+6. Upload PDF to Performance_test_JMeter folder
+7. Commit test artifacts to GitHub
+8. Address any identified bottlenecks
+9. Re-run tests after optimizations
+
+TROUBLESHOOTING
+
+Common Issues and Solutions:
+
+Issue: Server not running
+Solution: Start Main.java first
+
+Issue: JMeter not installed
+Solution: brew install jmeter
+
+Issue: Permission denied on script
+Solution: chmod +x run_performance_test.sh
+
+Issue: Out of memory
+Solution: export JVM_ARGS="-Xms512m -Xmx2048m"
+
+Issue: High error rate
+Solution: Check server capacity, reduce thread count
+
+BEST PRACTICES
+
+1. Always start with lower thread counts to validate test
+2. Monitor server resource usage during test
+3. Run multiple test iterations for consistency
+4. Document any environmental factors
+5. Compare results across test runs
+6. Keep server logs for error analysis
+7. Take screenshots immediately after test
+8. Complete report while results are fresh
+
+TOOLS AND TECHNOLOGIES
+
+Primary Tool: Apache JMeter 5.6+
+- Industry-standard performance testing tool
+- Supports HTTP/HTTPS protocols
+- Powerful reporting capabilities
+- Scriptable and automatable
+
+Supporting Tools:
+- Bash scripting for automation
+- curl for server health checks
+- Browser for report viewing
+- PDF conversion tools
+
+REFERENCES
+
+JMeter Documentation: https://jmeter.apache.org/usermanual/
+Performance Testing Guide: https://jmeter.apache.org/usermanual/best-practices.html
+
+Project Email: adefemiisaaco@gmail.com
+
+
+

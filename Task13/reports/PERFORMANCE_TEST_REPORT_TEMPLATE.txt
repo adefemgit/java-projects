@@ -1,0 +1,383 @@
+PERFORMANCE TEST REPORT
+Online Quiz System
+
+Project Information
+- Project Name: Online Quiz System
+- Test Date: [INSERT DATE]
+- Test Engineer: [INSERT NAME]
+- Email: adefemiisaaco@gmail.com
+- Version: 1.0
+
+EXECUTIVE SUMMARY
+
+Test Objectives
+This performance test evaluates the Online Quiz System's ability to handle expected normal and peak traffic loads while maintaining response times within non-functional requirements.
+
+Primary Goals:
+1. Validate system performance under 1000 concurrent users
+2. Ensure response times remain under 2 seconds
+3. Identify system bottlenecks and performance issues
+4. Measure throughput and resource utilization
+5. Verify API endpoint performance under load
+
+Test Configuration Summary
+- Virtual Users: 1000 threads
+- Ramp-up Period: 300 seconds (5 minutes)
+- Test Duration: ~6-7 minutes total
+- Total Requests: 3000 (3 requests per user)
+- Load Pattern: Gradual ramp-up (3.33 users/second)
+
+Overall Results
+[PASS/FAIL - INSERT AFTER TEST EXECUTION]
+
+Critical Findings:
+- [INSERT KEY FINDINGS]
+- [INSERT KEY FINDINGS]
+- [INSERT KEY FINDINGS]
+
+TEST ENVIRONMENT
+
+Server Configuration
+- Operating System: macOS (darwin 26.1)
+- Java Version: Java 11
+- Server Type: Java HttpServer (built-in)
+- Server Port: 8080
+- Protocol: HTTP
+- Host: localhost
+
+Testing Tool
+- Tool: Apache JMeter
+- Version: [INSERT VERSION - from jmeter --version]
+- Mode: CLI (Non-GUI)
+- Java VM: Java 11
+
+Network Configuration
+- Type: Local (loopback)
+- Bandwidth: Unlimited (localhost)
+- Latency: < 1ms
+
+TEST EXECUTION DETAILS
+
+Test Scenarios
+
+Scenario 1: Home Page Load
+- Endpoint: GET /
+- Description: User accessing quiz HTML interface
+- Expected Response: 200 OK with HTML content
+- Assertions:
+  * Response code = 200
+  * Response time < 2000ms
+
+Scenario 2: Questions API
+- Endpoint: GET /questions
+- Description: Fetching quiz questions in JSON format
+- Expected Response: 200 OK with JSON array
+- Assertions:
+  * Response code = 200
+  * Response time < 2000ms
+  * JSON contains question text
+  * Valid JSON structure
+
+Scenario 3: Quiz Submission
+- Endpoint: POST /submit?answers=1,2,1
+- Description: Submitting quiz answers for scoring
+- Expected Response: 200 OK with score JSON
+- Assertions:
+  * Response code = 200
+  * Response time < 2000ms
+  * Correct score returned (3/3)
+
+User Behavior Simulation
+- Think Time: 1000ms between requests
+- Flow: Home → Questions → Submit
+- Loop: 1 iteration per user
+
+Test Execution Timeline
+- Start Time: [INSERT]
+- End Time: [INSERT]
+- Total Duration: [INSERT]
+- Actual Users Deployed: [INSERT]
+
+PERFORMANCE METRICS
+
+Response Time Analysis
+
+GET / (Home Page)
+- Average Response Time: [INSERT] ms
+- Median Response Time: [INSERT] ms
+- 90th Percentile: [INSERT] ms
+- 95th Percentile: [INSERT] ms
+- 99th Percentile: [INSERT] ms
+- Min Response Time: [INSERT] ms
+- Max Response Time: [INSERT] ms
+- Standard Deviation: [INSERT] ms
+
+GET /questions (Questions API)
+- Average Response Time: [INSERT] ms
+- Median Response Time: [INSERT] ms
+- 90th Percentile: [INSERT] ms
+- 95th Percentile: [INSERT] ms
+- 99th Percentile: [INSERT] ms
+- Min Response Time: [INSERT] ms
+- Max Response Time: [INSERT] ms
+- Standard Deviation: [INSERT] ms
+
+POST /submit (Quiz Submission)
+- Average Response Time: [INSERT] ms
+- Median Response Time: [INSERT] ms
+- 90th Percentile: [INSERT] ms
+- 95th Percentile: [INSERT] ms
+- 99th Percentile: [INSERT] ms
+- Min Response Time: [INSERT] ms
+- Max Response Time: [INSERT] ms
+- Standard Deviation: [INSERT] ms
+
+Aggregate Performance
+- Overall Average Response Time: [INSERT] ms
+- Overall 90th Percentile: [INSERT] ms
+- Overall 95th Percentile: [INSERT] ms
+
+NFR Compliance
+- Target: < 2000ms response time
+- Status: [PASS/FAIL]
+- Compliance Rate: [INSERT]%
+
+Throughput Analysis
+
+Overall Throughput
+- Total Requests: [INSERT]
+- Total Duration: [INSERT] seconds
+- Requests per Second: [INSERT] req/s
+- Requests per Minute: [INSERT] req/min
+
+Per Endpoint Throughput
+- GET / : [INSERT] req/s
+- GET /questions : [INSERT] req/s
+- POST /submit : [INSERT] req/s
+
+Peak Throughput
+- Maximum req/s achieved: [INSERT]
+- Time of peak: [INSERT]
+
+Data Transfer
+- Total Bytes Sent: [INSERT] KB
+- Total Bytes Received: [INSERT] KB
+- Average Bytes per Request: [INSERT] bytes
+- Network Throughput: [INSERT] KB/s
+
+Error Analysis
+
+Error Summary
+- Total Errors: [INSERT]
+- Error Rate: [INSERT]%
+- Target Error Rate: < 1%
+- Status: [PASS/FAIL]
+
+Error Breakdown by Type
+- HTTP 4xx Errors: [INSERT]
+- HTTP 5xx Errors: [INSERT]
+- Timeout Errors: [INSERT]
+- Connection Errors: [INSERT]
+- Assertion Failures: [INSERT]
+
+Error Details
+[INSERT ERROR LOGS IF ANY]
+
+Concurrency Analysis
+
+User Load Pattern
+- Initial Users: 0
+- Final Users: 1000
+- Ramp-up Rate: 3.33 users/second
+- Peak Concurrent Users: 1000
+
+Active Threads Over Time
+[DESCRIBE THREAD BEHAVIOR FROM GRAPH]
+
+Resource Utilization
+[IF MONITORED - INSERT CPU, MEMORY DATA]
+
+GRAPHICAL ANALYSIS
+
+Response Time Over Time
+[INSERT SCREENSHOT OR DESCRIPTION]
+- Shows response time stability during ramp-up and peak load
+- Identifies any spikes or degradation patterns
+
+Active Threads Over Time
+[INSERT SCREENSHOT OR DESCRIPTION]
+- Visualizes gradual user ramp-up
+- Shows steady state at 1000 users
+
+Transactions Per Second
+[INSERT SCREENSHOT OR DESCRIPTION]
+- Shows throughput consistency
+- Identifies peak transaction periods
+
+Response Time Percentiles
+[INSERT SCREENSHOT OR DESCRIPTION]
+- Distribution of response times
+- Identifies outliers and consistency
+
+Hits Per Second
+[INSERT SCREENSHOT OR DESCRIPTION]
+- Request rate over time
+- Shows system capacity
+
+BOTTLENECK ANALYSIS
+
+Identified Issues
+1. [INSERT ISSUE IF FOUND]
+   - Description: [INSERT]
+   - Impact: [INSERT]
+   - Severity: High/Medium/Low
+
+2. [INSERT ISSUE IF FOUND]
+   - Description: [INSERT]
+   - Impact: [INSERT]
+   - Severity: High/Medium/Low
+
+Performance Constraints
+- [INSERT CONSTRAINTS OBSERVED]
+- [INSERT CONSTRAINTS OBSERVED]
+
+System Behavior Under Load
+- Ramp-up Phase: [DESCRIBE BEHAVIOR]
+- Steady State: [DESCRIBE BEHAVIOR]
+- Peak Load: [DESCRIBE BEHAVIOR]
+
+Root Cause Analysis
+[INSERT ANALYSIS OF ANY PERFORMANCE ISSUES]
+
+RECOMMENDATIONS
+
+Immediate Actions
+1. [INSERT RECOMMENDATION]
+2. [INSERT RECOMMENDATION]
+3. [INSERT RECOMMENDATION]
+
+Performance Optimization
+1. Connection Pooling
+   - Implement HTTP connection pooling for improved performance
+   - Reuse connections to reduce overhead
+
+2. Caching Strategy
+   - Cache questions JSON response
+   - Implement ETag headers for conditional requests
+
+3. Response Compression
+   - Enable gzip compression for responses
+   - Reduce network transfer time
+
+4. Thread Pool Optimization
+   - Configure optimal thread pool size based on CPU cores
+   - Monitor thread utilization
+
+Infrastructure Improvements
+1. Horizontal Scaling
+   - Deploy multiple server instances
+   - Implement load balancer
+
+2. Vertical Scaling
+   - Increase server CPU/memory if needed
+   - Monitor resource usage under load
+
+3. Database Integration
+   - Replace in-memory question storage with database
+   - Implement connection pooling
+
+Code Optimizations
+1. Reduce synchronization overhead
+2. Optimize JSON serialization
+3. Implement async request handling
+4. Add request rate limiting
+
+Monitoring and Alerting
+1. Implement APM (Application Performance Monitoring)
+2. Set up alerts for response time thresholds
+3. Monitor error rates in production
+4. Track resource utilization metrics
+
+CONCLUSION
+
+Test Summary
+The performance test successfully evaluated the Online Quiz System under a load of 1000 concurrent users with a 5-minute ramp-up period. [INSERT OVERALL ASSESSMENT]
+
+NFR Compliance Status
+- Response Time Target (< 2 seconds): [PASS/FAIL]
+- Error Rate Target (< 1%): [PASS/FAIL]
+- Throughput Target (> 100 req/s): [PASS/FAIL]
+
+Overall System Status: [PASS/FAIL]
+
+Production Readiness
+[INSERT ASSESSMENT OF WHETHER SYSTEM IS READY FOR PRODUCTION]
+
+Key Takeaways
+1. [INSERT KEY POINT]
+2. [INSERT KEY POINT]
+3. [INSERT KEY POINT]
+
+Next Steps
+1. Address identified bottlenecks
+2. Implement recommended optimizations
+3. Re-run performance tests after improvements
+4. Conduct stress testing to find breaking point
+5. Perform endurance testing for long-duration stability
+
+APPENDICES
+
+Appendix A: Test Plan Configuration
+- File: QuizLoadTest.jmx
+- Location: Task13/performance/
+- Thread Groups: 1
+- Samplers: 3
+- Assertions: 9
+- Listeners: 4
+
+Appendix B: JMeter Command
+```
+jmeter -n -t QuizLoadTest.jmx -l results.jtl -e -o html-report -JTHREADS=1000 -JRAMPUP=300
+```
+
+Appendix C: Raw Data Files
+- Results Log: Task13/reports/results.jtl
+- HTML Report: Task13/reports/html-report/index.html
+- Screenshots: Task13/reports/screenshots/
+
+Appendix D: System Endpoints Tested
+1. GET http://localhost:8080/
+2. GET http://localhost:8080/questions
+3. POST http://localhost:8080/submit?answers=1,2,1
+
+Appendix E: Non-Functional Requirements Reference
+From Task05_Requirements.md:
+- Performance: ≤2s initial load under 500 concurrent users
+- Reliability: ≥99.9% uptime
+- Note: This test exceeds the 500 user requirement with 1000 users
+
+REPORT APPROVAL
+
+Prepared By: [INSERT NAME]
+Date: [INSERT DATE]
+Signature: _______________
+
+Reviewed By: [INSERT NAME]
+Date: [INSERT DATE]
+Signature: _______________
+
+Approved By: [INSERT NAME]
+Date: [INSERT DATE]
+Signature: _______________
+
+END OF REPORT
+
+Instructions for Completing This Report:
+1. Run the performance test using the run_performance_test.sh script
+2. Collect metrics from the HTML dashboard (Task13/reports/html-report/index.html)
+3. Take screenshots of key graphs
+4. Fill in all [INSERT] placeholders with actual test data
+5. Save screenshots to Task13/reports/screenshots/
+6. Convert this document to PDF
+7. Upload PDF to shared folder: Performance_test_JMeter
+8. Commit test results to GitHub repository
